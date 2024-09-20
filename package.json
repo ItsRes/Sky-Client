@@ -1,7 +1,7 @@
 {
     "name": "skyclient",
     "preductname": "Sky Client",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Sky-Client",
     "main": "src/app.js",
     "author": {
