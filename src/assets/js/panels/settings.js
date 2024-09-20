@@ -1,7 +1,4 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
- */
+
 
 import { changePanel, accountSelect, database, Slider, config, setStatus, popup, appdata, setBackground } from '../utils.js'
 const { ipcRenderer } = require('electron');
@@ -53,8 +50,8 @@ class Settings {
                 let id = e.target.id
                 if (e.target.classList.contains('account')) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Connecting',
+                        content: 'Please Wait...',
                         color: 'var(--color)'
                     })
 
@@ -72,8 +69,8 @@ class Settings {
 
                 if (e.target.classList.contains("delete-profile")) {
                     popupAccount.openPopup({
-                        title: 'Connexion',
-                        content: 'Veuillez patienter...',
+                        title: 'Connecting',
+                        content: 'Please Wait...',
                         color: 'var(--color)'
                     })
                     await this.db.deleteData('accounts', id);
@@ -166,7 +163,7 @@ class Settings {
         javaPathText.textContent = `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let configClient = await this.db.readData('configClient')
-        let javaPath = configClient?.java_config?.java_path || 'Utiliser la version de java livre avec le launcher';
+        let javaPath = configClient?.java_config?.java_path || 'Use the java book version with the launcher';
         let javaPathInputTxt = document.querySelector(".java-path-input-text");
         let javaPathInputFile = document.querySelector(".java-path-input-file");
         javaPathInputTxt.value = javaPath;
@@ -187,12 +184,12 @@ class Settings {
                 javaPathInputTxt.value = file;
                 configClient.java_config.java_path = file
                 await this.db.updateData('configClient', configClient);
-            } else alert("Le nom du fichier doit être java ou javaw");
+            } else alert("File name must be java or javaw");
         });
 
         document.querySelector(".java-path-reset").addEventListener("click", async () => {
             let configClient = await this.db.readData('configClient')
-            javaPathInputTxt.value = 'Utiliser la version de java livre avec le launcher';
+            javaPathInputTxt.value = 'Use the java book version with the launcher';
             configClient.java_config.java_path = null
             await this.db.updateData('configClient', configClient);
         });

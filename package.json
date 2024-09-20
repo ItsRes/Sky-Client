@@ -1,12 +1,12 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.1",
-    "description": "Launcher Mincraft pour le serveur Selvania",
+    "name": "skyclient",
+    "preductname": "Sky Client",
+    "version": "1.0.2",
+    "description": "Sky-Client",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
+        "name": "Sky, Inc.",
+        "email": "",
         "url": "https://github.com/ItsRes"
     },
     "url": "http://launcher.luuxis.fr",
@@ -14,7 +14,7 @@
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/ItsRes/Sky-Client/refs/heads/master/src/assets/images/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {

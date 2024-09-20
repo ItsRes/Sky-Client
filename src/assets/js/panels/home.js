@@ -1,7 +1,4 @@
-/**
- * @author Luuxis
- * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
- */
+
 import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
 
 const { Launch } = require('minecraft-java-core')
@@ -29,16 +26,16 @@ class Home {
                     <div class="news-header">
                         <img class="server-status-icon" src="assets/images/icon.png">
                         <div class="header-text">
-                            <div class="title">Aucun news n'ai actuellement disponible.</div>
+                            <div class="title">No news is currently available.</div>
                         </div>
                         <div class="date">
                             <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="month">January</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Vous pourrez suivre ici toutes les news relative au serveur.</p>
+                            <p>You can follow all the news relating to the server here.</p>
                         </div>
                     </div>`
                 newsElement.appendChild(blockNews);
@@ -78,12 +75,12 @@ class Home {
                         </div>
                         <div class="date">
                             <div class="day">1</div>
-                            <div class="month">Janvier</div>
+                            <div class="month">January</div>
                         </div>
                     </div>
                     <div class="news-content">
                         <div class="bbWrapper">
-                            <p>Impossible de contacter le serveur des news.</br>Merci de vérifier votre configuration.</p>
+                            <p>Unable to contact the news server.</br>Please check your configuration.</p>
                         </div>
                     </div>`
             newsElement.appendChild(blockNews);
@@ -256,14 +253,14 @@ class Home {
         });
 
         launch.on('progress', (progress, size) => {
-            infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Download ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
         });
 
         launch.on('check', (progress, size) => {
-            infoStarting.innerHTML = `Vérification ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Verification ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;
@@ -283,7 +280,7 @@ class Home {
         launch.on('patch', patch => {
             console.log(patch);
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Patch en cours...`
+            infoStarting.innerHTML = `Patch in progress...`
         });
 
         launch.on('data', (e) => {
@@ -293,7 +290,7 @@ class Home {
             };
             new logger('Minecraft', '#36b030');
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Demarrage en cours...`
+            infoStarting.innerHTML = `Starting up...`
             console.log(e);
         })
 
@@ -304,7 +301,7 @@ class Home {
             ipcRenderer.send('main-window-progress-reset')
             infoStartingBOX.style.display = "none"
             playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
+            infoStarting.innerHTML = `Verification`
             new logger(pkg.name, '#7289da');
             console.log('Close');
         });
@@ -313,7 +310,7 @@ class Home {
             let popupError = new popup()
 
             popupError.openPopup({
-                title: 'Erreur',
+                title: 'Error',
                 content: err.error,
                 color: 'red',
                 options: true
@@ -325,7 +322,7 @@ class Home {
             ipcRenderer.send('main-window-progress-reset')
             infoStartingBOX.style.display = "none"
             playInstanceBTN.style.display = "flex"
-            infoStarting.innerHTML = `Vérification`
+            infoStarting.innerHTML = `Verification`
             new logger(pkg.name, '#7289da');
             console.log(err);
         });
@@ -336,7 +333,7 @@ class Home {
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
-        let allMonth = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        let allMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         return { year: year, month: allMonth[month - 1], day: day }
     }
 }
