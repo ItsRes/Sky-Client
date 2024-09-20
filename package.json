@@ -1,8 +1,8 @@
 {
-    "name": "skyclient",
-    "preductname": "Sky Client",
+    "name": "orionclient",
+    "preductname": "Orion Client",
     "version": "1.0.3",
-    "description": "Sky-Client",
+    "description": "Orion-Client",
     "main": "src/app.js",
     "author": {
         "name": "Sky, Inc.",
