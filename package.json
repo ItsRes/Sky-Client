@@ -1,7 +1,7 @@
 {
     "name": "orionclient",
     "preductname": "Orion Client",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Orion-Client",
     "main": "src/app.js",
     "author": {
